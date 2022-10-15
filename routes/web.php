@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ChangepasswordController;
 use App\Http\Controllers\CountryController;
+use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\StatesController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -27,4 +28,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('users', UserController::class);
 Route::resource('countries', CountryController::class);
 Route::resource('states', StatesController::class);
+Route::resource('departments', DepartmentController::class);
 Route::post('/user/{user}/change-password', [ChangepasswordController::class, 'changepassword'])->name('user.change.password');
