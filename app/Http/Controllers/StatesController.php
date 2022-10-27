@@ -21,7 +21,8 @@ class StatesController extends Controller
         $states = state::get();
 
         if ($request->has('search')) {
-            $countries = state::where('country_code', 'like', "%{$request->search}%")->orWhere('name', 'like', "%{$request->search}%")->get();
+            /* dd($request->search); */
+            $states = state::where('name', 'like', "%{$request->search}%")->get();
         }
 
         return view('states.index')->with(['title' => $title, 'states' => $states]);

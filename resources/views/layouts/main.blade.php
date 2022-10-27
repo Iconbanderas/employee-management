@@ -37,7 +37,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="{{ url('/') }}">
+                <a class="nav-link" href="{{ url('/employees') }}">
                     
                     <span>Employee Mgt</span></a>
             </li>
@@ -54,7 +54,7 @@
                         <a class="collapse-item" href="{{ route('countries.index') }}">Country</a>
                         <a class="collapse-item" href="{{ route('states.index') }}">State</a>
                         <a class="collapse-item" href="{{ route('departments.index') }}">Department</a>
-                        <a class="collapse-item" href="">City</a>
+                        <a class="collapse-item" href="{{ route('cities.index') }}">City</a>
                     </div>
                 </div>
             </li>
@@ -143,7 +143,11 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">{{ $title }}</h1>
+                        <h1 class="h3 mb-0 text-gray-800">
+                            @if (isset($title))
+                                @{{ $title }}
+                            @endif
+                        </h1>
                         {{-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> --}}
                     </div>
@@ -216,6 +220,8 @@
     <!-- Page level custom scripts -->
     <script src="{{ asset('js/demo/chart-area-demo.js') }}"></script>
     <script src="{{ asset('js/demo/chart-pie-demo.js') }}"></script>
+
+    <script src="{{ mix('js/app.js') }}"></script>
 
 </body>
 
